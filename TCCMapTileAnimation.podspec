@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/TheClimateCorporation/TCCMapTileAnimation"
   s.license          = 'MIT'
   s.author           = "Richard Shin", "Bruce Johnson", "Matthew Sniff"
-  s.source           = { :git => "https://github.com/TheClimateCorporation/TCCMapTileAnimation.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/sjoerdhuininga/TCCMapTileAnimation.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/climatecorp'
 
   s.platform     = :ios, '7.0'
