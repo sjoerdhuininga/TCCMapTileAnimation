@@ -106,9 +106,14 @@
 	if (tile && zoomLevel == cappedZoomLevel) {
 		CGRect rect = [self rectForMapRect: mapRect];
 		UIImage *image = tile.tileImage;
-		UIGraphicsPushContext(context);
-		[image drawInRect:rect blendMode:kCGBlendModeNormal alpha:self.alpha];
-		UIGraphicsPopContext();
+//		UIGraphicsPushContext(context);
+//		[image drawInRect:rect blendMode:kCGBlendModeNormal alpha:self.alpha];
+//		UIGraphicsPopContext();
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+        CGContextScaleCTM(context, 1, -1);
+        CGContextDrawImage(context, CGRectMake(0, -rect.size.height, rect.size.width, rect.size.height), tile.tileImage.CGImage);
+        CGContextRestoreGState(context);
         return;
 	}
     
